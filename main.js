@@ -1,5 +1,5 @@
 function calculateTaxes() {
-    let grossSalary = document.getElementById("gross-salary").value;
+    let grossSalary = parseFloat(document.getElementById("gross-salary").value.replace(/,/g, ''));
     let taxDue = document.getElementById("tax-due");
     let niDue = document.getElementById("NI-due");
     let netPay = document.getElementById("net-pay");
@@ -37,6 +37,12 @@ function calculateTaxes() {
 
 }
 
+new Cleave('.form-control', {
+    numeral: true,
+    numeralThousandsGroupStyle: 'thousand'
+});
+
 document.getElementById("button-addon2").addEventListener("click", calculateTaxes);
+
 
 
